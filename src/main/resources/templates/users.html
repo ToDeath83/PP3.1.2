@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>table th, table td {padding: 5px;}</style>
+</head>
+
+<body>
+
+<div th:switch="${users}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+
+        <p><a href="/admin/users/new"><input type="submit" value="Create New User"/></a></p>
+
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Roles</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.roles}"></td>
+
+
+                <td><a th:href="@{/admin/users/{id}/edit/(id=${user.id})}"><input type="submit" value="Edit User"/></a></td>
+                <td><a th:href="@{/admin/users/delete/{id}(id=${user.id})}"><input type="submit" value="Delete"/></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
