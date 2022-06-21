@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.Runners;
+package ru.kata.spring.boot_security.demo.runners;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;

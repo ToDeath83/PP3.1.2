@@ -29,10 +29,17 @@
     <input type="text" th:field="*{password}" id="password"/>
     <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
     <br/>
-    <label for="roles">Enter roles: </label>
-    <input type="text" th:field="*{roles}" id="roles"/>
-    <div style="color:red" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}">Roles Error</div>
+<!--    <label for="roles">Enter roles: </label>-->
+<!--    <input type="text" th:field="*{roles}" id="roles"/>-->
+<!--    <div style="color:red" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}">Roles Error</div>-->
     <br/>
+
+    <label>
+        <input type="checkbox"
+               name="rA"
+               th:value="ROLE_ADMIN"
+               th:text="ADMIN">
+    </label>
 
     <input type="submit" value="Create!"/>
 </form>
